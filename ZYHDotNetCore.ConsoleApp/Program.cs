@@ -12,8 +12,11 @@ Console.WriteLine("Hello, World!");
 //Data source = server name | Initial Catalog = database name
 
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.read();
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.read();
 //adoDotNetExample.Delete();
 //adoDotNetExample.Create();
 //adoDotNetExample.Edit();
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Read();
