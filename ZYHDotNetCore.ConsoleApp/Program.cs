@@ -19,4 +19,5 @@ Console.WriteLine("Hello, World!");
 //adoDotNetExample.Edit();
 
 DapperExample dapperExample = new DapperExample();
-dapperExample.Read();
+//dapperExample.Read();
+dapperExample.Create("Dapper Example", "Zahid", "This is a Dapper example");

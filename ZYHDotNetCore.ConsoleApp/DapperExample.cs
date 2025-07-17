@@ -31,5 +31,22 @@ namespace ZYHDotNetCore.ConsoleApp
                 }
             }
         }
+            public void Create(string title, string author, string content)
+            {
+            
+            using (IDbConnection db = new SqlConnection(_connectionString))
+                {
+                    string query = "insert into Tbl_BLog (Title, Author, Content_data , Delete_flag) values (@Title, @Author, @Content_data , @DeleteFlag)";
+                var result = db.Execute(query, new {
+                    Title = title
+                   , Author = author
+                   , Content_data = content
+                   , DeleteFlag = 0
+                });
+                    Console.WriteLine($"{result} row(s) inserted.");
+                }
+
+            }
     }
+
 }
