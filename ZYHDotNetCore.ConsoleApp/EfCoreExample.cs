@@ -61,13 +61,18 @@ namespace ZYHDotNetCore.ConsoleApp
 
         public void Update(int Id , string Title, string Author, string Content)
         {
-            BlogModel blogModel=new BlogModel();
-            blogModel.Id = Id;
-            blogModel.Title=Title;
-            blogModel.Author=Author;
-            blogModel.Content_data = Content;
             AppDbContext db = new AppDbContext();
-            db.Update(blogModel);
+            var item = db.Blogs.AsNoTracking().FirstOrDefault(x => x.Id == Id && x.Delete_flag == 0);
+            if (item is null)
+            {
+                Console.WriteLine("There is no data found with Blog id " + Id);
+                return;
+            }
+            item.Title=Title;
+            item.Author=Author;
+            item.Content_data = Content;
+
+            db.Entry(item).State = EntityState.Modified;
             var result = db.SaveChanges();
             Console.WriteLine(result is 1 ? "Blog Update Success" : "Blog Update Fail");
         }
