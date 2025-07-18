@@ -25,4 +25,9 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Delete(2);
 
 EfCoreExample ef = new EfCoreExample();
-ef.Read();
+//ef.Read();
+//ef.Create("EfBlogTitle" , "EfBlogAuthor" , "EfBlogContent");
+//ef.GetBlogById(1);
+//ef.GetBlogById(5);
+//ef.Update(5, "Updated Ef Title", "Updated Ef Author", "Updated Ef Content");
+ef.Delete(5);
