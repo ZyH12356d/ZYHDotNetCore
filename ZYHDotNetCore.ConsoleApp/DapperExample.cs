@@ -47,6 +47,30 @@ namespace ZYHDotNetCore.ConsoleApp
                 }
 
             }
+        public void Update(int id , string title, string author, string content)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                string query = "update Tbl_BLog set Title = @Title, Author = @Author, Content_data = @Content_data where Id = @Id";
+                var result = db.Execute(query, new
+                {
+                    Id = id,
+                    Title = title,
+                    Author = author,
+                    Content_data = content
+                });
+                Console.WriteLine($"{result} row(s) updated.");
+            }
+        }
+        public void Delete(int id)
+        {
+            using (IDbConnection db = new SqlConnection(_connectionString))
+            {
+                string query = "update Tbl_BLog set Delete_flag = 1 where Id = @Id";
+                var result = db.Execute(query, new { Id = id });
+                Console.WriteLine($"{result} row(s) deleted.");
+            }
+        }
     }
 
 }

@@ -20,4 +20,6 @@ Console.WriteLine("Hello, World!");
 
 DapperExample dapperExample = new DapperExample();
 //dapperExample.Read();
-dapperExample.Create("Dapper Example", "Zahid", "This is a Dapper example");
+//dapperExample.Create("Dapper Example", "Zahid", "This is a Dapper example");
+//dapperExample.Update(1, "Updated Title", "Updated Author", "Updated Content");
+dapperExample.Delete(2);
