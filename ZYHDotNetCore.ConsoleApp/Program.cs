@@ -8,7 +8,7 @@ Console.WriteLine("Hello, World!");
 //Console.ReadKey();
 //Console.ReadLine();
 
-// To Check server name in sql server = select @@SERVERNAME
+// To Check server name in sql server = select @@SERVERNAME 
 //Data source = server name | Initial Catalog = database name
 
 
@@ -18,8 +18,11 @@ Console.WriteLine("Hello, World!");
 //adoDotNetExample.Create();
 //adoDotNetExample.Edit();
 
-DapperExample dapperExample = new DapperExample();
+//DapperExample dapperExample = new DapperExample();
 //dapperExample.Read();
 //dapperExample.Create("Dapper Example", "Zahid", "This is a Dapper example");
 //dapperExample.Update(1, "Updated Title", "Updated Author", "Updated Content");
-dapperExample.Delete(2);
+//dapperExample.Delete(2);
+
+EfCoreExample ef = new EfCoreExample();
+ef.Read();
