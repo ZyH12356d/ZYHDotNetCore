@@ -31,3 +31,10 @@ EfCoreExample ef = new EfCoreExample();
 //ef.GetBlogById(5);
 //ef.Update(5, "Updated Ef Title", "Updated Ef Author", "Updated Ef Content");
 ef.Delete(5);
+
+// AsNoTracking
+// Select * from Tbl_Blog with (nolock); in mysql and mssql select both commit and uncommit data.
+// AsNoTracking is used to read data without tracking changes in the context.
+// if in blog table there is a row that is update or something this will wait for the commit to be done before reading the data.
+// commit data / uncommit data
+//
