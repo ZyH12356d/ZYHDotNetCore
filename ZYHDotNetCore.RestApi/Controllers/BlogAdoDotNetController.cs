@@ -47,7 +47,6 @@ namespace ZYHDotNetCore.RestApi.Controllers
             return Ok(responseModel);
 
         }
-
         [HttpGet("{id}")]
         public IActionResult GetBlogById(int id)
         {
@@ -72,8 +71,6 @@ namespace ZYHDotNetCore.RestApi.Controllers
             return Ok(blog);
             
         }
-
-
         [HttpPost]
         public IActionResult CreateBlog(RequestModel blog)
         {
