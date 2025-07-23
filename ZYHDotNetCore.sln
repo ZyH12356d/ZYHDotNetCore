@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.ConsoleApp1",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.RestApi", "ZYHDotNetCore.RestApi\ZYHDotNetCore.RestApi.csproj", "{E129F4C5-6F1B-42ED-BE70-FDC2698720A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.ShareProject", "ZYHDotNetCore.ShareProject\ZYHDotNetCore.ShareProject.csproj", "{33763754-42A4-4868-BB13-7AB3ACE766CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.Share", "ZYHDotNetCore.ShareProject\ZYHDotNetCore.Share.csproj", "{33763754-42A4-4868-BB13-7AB3ACE766CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
