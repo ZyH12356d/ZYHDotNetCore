@@ -39,7 +39,7 @@ namespace ZYHDotNetCore.RestApi.Controllers
                         Id = Convert.ToInt32(reader["Id"]),
                         Title = reader["Title"].ToString(),
                         Author = reader["Author"].ToString(),
-                        ContentData = reader["Content_data"].ToString()
+                        Content_Data = reader["Content_data"].ToString()
                     };
                 responseModel.Add(model);
             }
@@ -66,7 +66,7 @@ namespace ZYHDotNetCore.RestApi.Controllers
                 blog.Id = Convert.ToInt32( row["Id"] );
                 blog.Title = row["Title"].ToString();
                 blog.Author = row["Author"].ToString();
-                blog.ContentData = row["Content_data"].ToString();
+                blog.Content_Data = row["Content_data"].ToString();
             }
             return Ok(blog);
             
@@ -112,7 +112,7 @@ namespace ZYHDotNetCore.RestApi.Controllers
             updateCmd.Parameters.AddWithValue("@Id", id);
             updateCmd.Parameters.AddWithValue("@newTitle", blog.Title);
             updateCmd.Parameters.AddWithValue("@newAuthor", blog.Author);
-            updateCmd.Parameters.AddWithValue("@newContent", blog.ContentData);
+            updateCmd.Parameters.AddWithValue("@newContent", blog.Content_Data);
             int rowsAffected = updateCmd.ExecuteNonQuery();
             connection.Close();
 

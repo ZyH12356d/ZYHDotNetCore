@@ -8,6 +8,6 @@
 
         public string? Author { get; set; }
 
-        public string? ContentData { get; set; }
+        public string? Content_Data { get; set; }
     }
 }
