@@ -24,13 +24,17 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Update(1, "Updated Title", "Updated Author", "Updated Content");
 //dapperExample.Delete(2);
 
-EfCoreExample ef = new EfCoreExample();
+//EfCoreExample ef = new EfCoreExample();
 //ef.Read();
 //ef.Create("EfBlogTitle" , "EfBlogAuthor" , "EfBlogContent");
 //ef.GetBlogById(1);
 //ef.GetBlogById(5);
 //ef.Update(5, "Updated Ef Title", "Updated Ef Author", "Updated Ef Content");
-ef.Delete(5);
+//ef.Delete(5);
+
+AdoExample ado = new AdoExample();
+ado.Read();
+//ado.Create();
 
 // AsNoTracking
 // Select * from Tbl_Blog with (nolock); in mysql and mssql select both commit and uncommit data.

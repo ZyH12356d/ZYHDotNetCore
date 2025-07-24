@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,11 +41,41 @@ namespace ZYHDotNetCore.ConsoleApp
 
             string query = $"SELECT * FROM Tbl_Blog WHERE Id = @Id";
 
-            var dt = _adoDotNetService.Query(query, new SqlParameter("@Id" , id));
+            var dt = _adoDotNetService.Query(query, new SqlParameterModel("@Id", id));
             DataRow row = dt.Rows[0];
             Console.WriteLine("Current Title: " + row["Title"]);
             Console.WriteLine("Current Author: " + row["Author"]);
             Console.WriteLine("Current Content: " + row["Content_data"]);
+        }
+        public int Create()
+        {
+            Console.Write("Enter Title : ");
+            string title = Console.ReadLine();
+            Console.Write("Enter Author : ");
+            string author = Console.ReadLine();
+            Console.Write("Enter Content : ");
+            string content = Console.ReadLine();
+            
+
+
+            string query = $@"INSERT INTO [dbo].[Tbl_Blog]
+                               ([Title]
+                               ,[Author]
+                               ,[Content_data]
+                               ,[Delete_flag])
+                         VALUES
+                               (@title
+                               ,@author
+                               ,@content
+                               ,0)";
+
+            var result = _adoDotNetService.Excute(query, 
+                new SqlParameterModel("@title", title), 
+                new SqlParameterModel("@author", author), 
+                new SqlParameterModel("@content", content));
+
+
+            return result;
         }
     }
 }

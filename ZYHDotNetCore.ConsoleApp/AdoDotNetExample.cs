@@ -18,26 +18,26 @@ namespace ZYHDotNetCore.ConsoleApp
             connecton.Open();
             Console.WriteLine("Connection Success");
             SqlCommand cmd = new SqlCommand(query, connecton);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                Console.WriteLine(reader["Id"]);
-                Console.WriteLine(reader["Title"]);
-                Console.WriteLine(reader["Author"]);
-                Console.WriteLine(reader["Content_data"]);
-                Console.WriteLine("--------------------");
-            }
-            //SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            //DataTable dataTable = new DataTable();
-            connecton.Close();
-            //foreach (DataRow row in dataTable.Rows)
+            //SqlDataReader reader = cmd.ExecuteReader();
+            //while (reader.Read())
             //{
-            //    Console.WriteLine(row["Id"]);
-            //    Console.WriteLine(row["Title"]);
-            //    Console.WriteLine(row["Author"]);
-            //    Console.WriteLine(row["Content_data"]);
-
+            //    Console.WriteLine(reader["Id"]);
+            //    Console.WriteLine(reader["Title"]);
+            //    Console.WriteLine(reader["Author"]);
+            //    Console.WriteLine(reader["Content_data"]);
+            //    Console.WriteLine("--------------------");
             //}
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable();
+            connecton.Close();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine(row["Id"]);
+                Console.WriteLine(row["Title"]);
+                Console.WriteLine(row["Author"]);
+                Console.WriteLine(row["Content_data"]);
+
+            }
         }
         public int Create()
         {

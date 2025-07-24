@@ -15,7 +15,7 @@ namespace ZYHDotNetCore.Share
         {
             _connectionString = connectionString;
         }
-        public DataTable Query(string query , params SqlParameter[] sqlParameter)
+        public DataTable Query(string query,  params SqlParameterModel[] sqlParameter)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -35,14 +35,32 @@ namespace ZYHDotNetCore.Share
             connection.Close();
             return dt;
         }
+        public int Excute(string query , params SqlParameterModel[] sqlParameter)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand(query ,connection);
+            if (sqlParameter is not null)
+            {
+                foreach (var param in sqlParameter)
+                {
+                    cmd.Parameters.AddWithValue(param.ParameterName, param.Value);
+                }
+            }
+            
+            var result = cmd.ExecuteNonQuery();
+
+            connection.Close();
+            return result;
+        }
     }
 
-    public class SqlParameter
+    public class SqlParameterModel
     {
         public string ParameterName { get; set; }
         public object Value { get; set; }
 
-        public SqlParameter(string parameterName, object value)
+        public SqlParameterModel(string parameterName, object value)
         {
             ParameterName = parameterName;
             Value = value;
