@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using ZYHDotNetCore.Database.AppDbContextModels;
 using ZYHDotNetCore.MinimalAPI.Endpoints.Blog;
 
@@ -116,8 +117,22 @@ app.UseHttpsRedirection();
 //})
 //.WithName("DeleteBlog")
 //.WithOpenApi();
-app.MapBlogEndpoints();
+//app.MapBlogEndpoints();
+
+TblBlog blogtest = new TblBlog
+{
+    Id = 1,
+    Title = "Sample Blog",
+    Author = "Author Name",
+    ContentData = "This is a sample blog content.",
+    DeleteFlag = 0
+};
+
+string jsonStr = JsonConvert.SerializeObject(blogtest);
+Console.WriteLine(jsonStr);
 app.Run();
+
+
 
 //internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 //{
