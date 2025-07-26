@@ -2,7 +2,7 @@
 
 public class BirdResponseModel
 {
-    public Tbl_Bird[] Tbl_Bird { get; set; }
+    public List<Tbl_Bird> Tbl_Bird { get; set; }
 }
 
 public class Tbl_Bird

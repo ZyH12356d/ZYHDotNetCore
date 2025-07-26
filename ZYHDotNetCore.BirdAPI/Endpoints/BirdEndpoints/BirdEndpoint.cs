@@ -13,7 +13,7 @@ namespace ZYHDotNetCore.BirdAPI.Endpoints.BirdEndpoints
                 string filePath = "wwwroot/Data/Birds.json";
                 var jsonStr = File.ReadAllText(filePath);
                 var result = JsonConvert.DeserializeObject<BirdResponseModel>(jsonStr);
-                if (result == null || result.Tbl_Bird == null || result.Tbl_Bird.Length == 0)
+                if (result == null || result.Tbl_Bird == null)
                 {
                     return Results.NotFound("No birds found.");
                 }
@@ -21,6 +21,21 @@ namespace ZYHDotNetCore.BirdAPI.Endpoints.BirdEndpoints
                 {
                     return Results.Ok(result.Tbl_Bird);
                 }
+            });
+
+            app.MapPost("/birds" , (Tbl_Bird responseModel)  =>
+            {
+                string filePath = "wwwroot/Data/Birds.json";
+                var jsonStr = File.ReadAllText(filePath);
+                var result = JsonConvert.DeserializeObject<BirdResponseModel>(jsonStr)!;
+
+                responseModel.Id = result.Tbl_Bird.Count == 0 ? 1 : result.Tbl_Bird.Max(x => x.Id) + 1; // Assign new ID
+                result.Tbl_Bird.Add(responseModel);
+
+                var updatedJsonStr = JsonConvert.SerializeObject(result, Formatting.Indented);
+                File.WriteAllText(filePath, updatedJsonStr);
+
+                return Results.Created($"/birds/{responseModel.Id}", responseModel);
             });
 
             app.MapGet("/birds/{id:int}", (int id) =>

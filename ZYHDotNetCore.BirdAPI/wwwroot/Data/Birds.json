@@ -139,6 +139,13 @@
       "BirdEnglishName": "Eurasian Tree Sparrow",
       "Description": "\n\nဒါကတော့ နောက်ထပ် စာ တမျိုးဖြစ်တဲ့ ပသျှူးစာ အမျိုးအစားပေါ့ဗျာ။ အမှတ်တမဲ့ ကြည့်ရင်တော့ ကျနော်တို့ နေ့တိုင်း မြင်နေကြဖြစ်တဲ့ House Sparrow စာကလေးနဲ့ တော်တော်တူပါတယ်။",
       "ImagePath": "img/20_EurasianTreeSparrow.jpg"
+    },
+    {
+      "Id": 21,
+      "BirdMyanmarName": "string",
+      "BirdEnglishName": "string",
+      "Description": "string",
+      "ImagePath": "string"
     }
   ]
 }
