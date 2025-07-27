@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.MinimalAPI", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.BirdAPI", "ZYHDotNetCore.BirdAPI\ZYHDotNetCore.BirdAPI.csproj", "{CE0B140A-3C50-4146-AFB4-C6C82B7EAD82}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZYHDotNetCore.Domain", "ZYHDotNetCore.Domain\ZYHDotNetCore.Domain.csproj", "{0DE3F866-07E2-4116-876F-73229D426CE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CE0B140A-3C50-4146-AFB4-C6C82B7EAD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE0B140A-3C50-4146-AFB4-C6C82B7EAD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE0B140A-3C50-4146-AFB4-C6C82B7EAD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DE3F866-07E2-4116-876F-73229D426CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DE3F866-07E2-4116-876F-73229D426CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DE3F866-07E2-4116-876F-73229D426CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DE3F866-07E2-4116-876F-73229D426CE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

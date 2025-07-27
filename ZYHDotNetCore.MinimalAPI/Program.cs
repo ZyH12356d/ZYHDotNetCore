@@ -130,6 +130,7 @@ TblBlog blogtest = new TblBlog
 
 string jsonStr = JsonConvert.SerializeObject(blogtest);
 Console.WriteLine(jsonStr);
+app.MapBlogServiceEndpoints();
 app.Run();
 
 

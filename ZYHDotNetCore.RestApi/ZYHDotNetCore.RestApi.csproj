@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZYHDotNetCore.Database\ZYHDotNetCore.Database.csproj" />
+    <ProjectReference Include="..\ZYHDotNetCore.Domain\ZYHDotNetCore.Domain.csproj" />
   </ItemGroup>
 
 </Project>
