@@ -9,6 +9,7 @@ namespace ZYHDotNetCore.MiniTransfer.EndPoints.WidthDrawEndpoints
             app.MapPost("/api/widthdraw", (string phNo, int amount) =>
             {
                 AppDbContext db = new AppDbContext();
+                using var transaction = db.Database.BeginTransaction();
                 var user = db.TblUsers.FirstOrDefault(x => x.PhoneNumber.Equals(phNo) && x.DeleteFlag == 0);
                 if (user is null)
                 {
@@ -25,6 +26,21 @@ namespace ZYHDotNetCore.MiniTransfer.EndPoints.WidthDrawEndpoints
                     var result = db.SaveChanges();
                     if (result is 1)
                     {
+                        db.TblTransactionHistories.Add(new TblTransactionHistory
+                        {
+                            FromNumber = phNo,
+                            ToNumber = "Bnank WidthDraw", // Assuming deposit to self
+                            Type = "WidthDraw",
+                            Amount = amount,
+                            Date = DateTime.Now
+                        });
+                        var tranResult = db.SaveChanges();
+                        if (tranResult is 0)
+                        {
+                            transaction.Rollback();
+                            return Results.Problem("Something went wrong while saving transaction history to the database.");
+                        }
+                        transaction.Commit();
                         return Results.Ok("WidthDraw Success");
                     }
                     else

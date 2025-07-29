@@ -1,3 +1,4 @@
+using ZYHDotNetCore.MiniTransfer.EndPoints.TransferEndpoints;
 using ZYHDotNetCore.MiniTransfer.EndPoints.UserRegisterEndpoints;
 using ZYHDotNetCore.MiniTransfer.EndPoints.WidthDrawEndpoints;
 
@@ -21,6 +22,7 @@ app.UseHttpsRedirection();
 
 app.MapUserRegisterEndpoints();
 app.MapWidthDrawEndpoints();
+app.MapTransferEndpoints();
 app.MapDepositEndpoints();
 
 app.Run();
