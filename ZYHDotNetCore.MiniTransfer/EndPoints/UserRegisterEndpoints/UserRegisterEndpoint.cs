@@ -30,7 +30,23 @@ namespace ZYHDotNetCore.MiniTransfer.EndPoints.UserRegisterEndpoints
                     return Results.Ok(result);
                 }
             })
-            .WithName("UserRegisterListById")
+            .WithName("UserRegisterById")
+            .WithTags("User")
+            .WithOpenApi();
+            app.MapGet("/api/user/balance/{PhNo}", (string PhNo) =>
+            {
+                AppDbContext db = new AppDbContext();
+                var result = db.TblUsers.FirstOrDefault(x => x.PhoneNumber.Equals(PhNo) && x.DeleteFlag == 0);
+                if(result is null)
+                {
+                    return Results.NotFound("User Not Found");
+                }
+                else
+                {
+                    return Results.Ok(result.Balance);
+                }
+            })
+            .WithName("UserRegisterByPhNo")
             .WithTags("User")
             .WithOpenApi();
 
