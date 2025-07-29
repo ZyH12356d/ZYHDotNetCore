@@ -25,7 +25,7 @@ namespace ZYHDotNetCore.MiniTransfer.EndPoints.WidthDrawEndpoints
                     {
                         db.TblTransactionHistories.Add(new TblTransactionHistory
                         {
-                            FromNumber = phNo,
+                            FromNumber = "Bank Deposit",
                             ToNumber = phNo, // Assuming deposit to self
                             Type = "Deposit",
                             Amount = amount,
